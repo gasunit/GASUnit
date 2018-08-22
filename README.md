@@ -37,7 +37,7 @@ function reverse (text) {
 ```
 
 ```js
-var test = GASUnit.slack(PropertiesService.getScriptProperties().getProperty('SLACK_URL'))
+var test = GASUnit.slack('http://...')
 var assert = GASUnit.assert
 
 function test_reverse () {
