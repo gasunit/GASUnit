@@ -23,6 +23,10 @@ function test_reverse () {
   test('reverse() returns reversed text', function () {
     assert(reverse('Hello') === 'olleH')
   })
+
+  test('reverse() returns reversed text', function () {
+    assert(reverse('Hello') === 'Hello')
+  })
 }
 ```
 
@@ -43,6 +47,10 @@ var assert = GASUnit.assert
 function test_reverse () {
   test('reverse() returns reversed text', function () {
     assert(reverse('Hello') === 'olleH')
+  })
+
+  test('reverse() returns reversed text', function () {
+    assert(reverse('Hello') === 'Hello')
   })
 }
 ```
