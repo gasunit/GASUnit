@@ -14,7 +14,7 @@ function test (name, tester) {
 }
 
 /**
-* Return test function using Slack.
+* Return test function which use Slack.
 * @param {String} url - Webhook URL
 * @return {Function} test function
 */
