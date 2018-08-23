@@ -55,7 +55,22 @@ function test_reverse () {
 }
 ```
 
-NOTE: If you're publishing source code, should **not** write webhook url as a literal, and should use instead properties.
+If you're publishing source code, should **not** write webhook url as a literal, and should use instead properties.
+
+```js
+var test = GASUnit.slack(PropertiesService.getScriptProperties().getProperty('WEBHOOK_URL'))
+var assert = GASUnit.assert
+
+function test_reverse () {
+  test('reverse() returns reversed text', function () {
+    assert(reverse('Hello') === 'olleH')
+  })
+
+  test('reverse() returns reversed text', function () {
+    assert(reverse('Hello') === 'Hello')
+  })
+}
+```
 
 #### Result
 ![slack.png](slack.png)
