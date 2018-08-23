@@ -20,10 +20,12 @@ var test = GASUnit.test
 var assert = GASUnit.assert
   
 function test_reverse () {
+  // This test will success.
   test('reverse() returns reversed text', function () {
     assert(reverse('Hello') === 'olleH')
   })
 
+  // This test will fail.
   test('reverse() returns reversed text', function () {
     assert(reverse('Hello') === 'Hello')
   })
@@ -45,10 +47,12 @@ var test = GASUnit.slack('https://...')
 var assert = GASUnit.assert
 
 function test_reverse () {
+  // This test will success.
   test('reverse() returns reversed text', function () {
     assert(reverse('Hello') === 'olleH')
   })
 
+  // This test will fail.
   test('reverse() returns reversed text', function () {
     assert(reverse('Hello') === 'Hello')
   })
@@ -63,10 +67,12 @@ var test = GASUnit.slack(PropertiesService.getScriptProperties().getProperty('WE
 var assert = GASUnit.assert
 
 function test_reverse () {
+  // This test will success.
   test('reverse() returns reversed text', function () {
     assert(reverse('Hello') === 'olleH')
   })
 
+  // This test will fail.
   test('reverse() returns reversed text', function () {
     assert(reverse('Hello') === 'Hello')
   })
