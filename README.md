@@ -55,5 +55,7 @@ function test_reverse () {
 }
 ```
 
+If you're publishing source code, you should not write webhook url as a literal, and use instead script properties.
+
 #### Result
 ![slack.png](slack.png)
