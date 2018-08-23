@@ -55,7 +55,8 @@ function test_reverse () {
 }
 ```
 
-If you're publishing source code, should **not** write webhook url as a literal, and should use instead properties.
+If you're publishing source code, should **not** write webhook url as a literal.
+You can use properties as environment variables.
 
 ```js
 var test = GASUnit.slack(PropertiesService.getScriptProperties().getProperty('WEBHOOK_URL'))
