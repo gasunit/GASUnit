@@ -41,7 +41,7 @@ function reverse (text) {
 ```
 
 ```js
-var test = GASUnit.slack('http://...')
+var test = GASUnit.slack('https://...')
 var assert = GASUnit.assert
 
 function test_reverse () {
