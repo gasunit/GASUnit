@@ -10,24 +10,18 @@ project key: `MSnMmw8hLWgjUG6uKSTQBEzVZgzu5bsVr`
 
 ### Use Logger
 ```js
-function reverse (text) {
-  return text.split('').reverse().join('')
-}
-```
-
-```js
 var test = GASUnit.test
 var assert = GASUnit.assert
   
 function test_reverse () {
   // This test will success.
-  test('reverse() returns reversed text', function () {
-    assert(reverse('Hello') === 'olleH')
+  test('Array#indexOf() should return -1 when not present', function () {
+    assert([1,2,3].indexOf(4) === -1)
   })
 
   // This test will fail.
-  test('reverse() returns reversed text', function () {
-    assert(reverse('Hello') === 'Hello')
+  test('Array#indexOf() should return the index when present', function () {
+    assert([1,2,3].indexOf(3) === 3)
   })
 }
 ```
@@ -37,24 +31,18 @@ function test_reverse () {
 
 ### Use Slack
 ```js
-function reverse (text) {
-  return text.split('').reverse().join('')
-}
-```
-
-```js
 var test = GASUnit.slack('https://...')
 var assert = GASUnit.assert
 
 function test_reverse () {
   // This test will success.
-  test('reverse() returns reversed text', function () {
-    assert(reverse('Hello') === 'olleH')
+  test('Array#indexOf() should return -1 when not present', function () {
+    assert([1,2,3].indexOf(4) === -1)
   })
 
   // This test will fail.
-  test('reverse() returns reversed text', function () {
-    assert(reverse('Hello') === 'Hello')
+  test('Array#indexOf() should return the index when present', function () {
+    assert([1,2,3].indexOf(3) === 3)
   })
 }
 ```
@@ -68,13 +56,13 @@ var assert = GASUnit.assert
 
 function test_reverse () {
   // This test will success.
-  test('reverse() returns reversed text', function () {
-    assert(reverse('Hello') === 'olleH')
+  test('Array#indexOf() should return -1 when not present', function () {
+    assert([1,2,3].indexOf(4) === -1)
   })
 
   // This test will fail.
-  test('reverse() returns reversed text', function () {
-    assert(reverse('Hello') === 'Hello')
+  test('Array#indexOf() should return the index when present', function () {
+    assert([1,2,3].indexOf(3) === 3)
   })
 }
 ```
