@@ -26,9 +26,6 @@ function test_reverse () {
 }
 ```
 
-#### Result
-![logger.png](logger.png)
-
 ### Use Slack
 ```js
 var test = GASUnit.slack('https://...')
@@ -66,6 +63,3 @@ function test_reverse () {
   })
 }
 ```
-
-#### Result
-![slack.png](slack.png)
