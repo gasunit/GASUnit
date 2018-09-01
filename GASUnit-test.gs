@@ -263,7 +263,8 @@ function test_postToSlack_ () {
 }
 
 function hasKeys_ (obj, keys) {
+  var objKeys = Object.keys(obj)
   return keys.every(function (key) {
-    return obj[key] !== undefined
+    return objKeys.indexOf(key) > -1
   })
 }
