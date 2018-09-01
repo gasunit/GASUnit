@@ -16,12 +16,12 @@ var assert = GASUnit.assert
 function test_reverse () {
   // This test will success.
   test('Array#indexOf() should return -1 when not present', function () {
-    assert([1,2,3].indexOf(4) === -1)
+    assert([1, 2, 3].indexOf(4) === -1)
   })
 
   // This test will fail.
   test('Array#indexOf() should return the index when present', function () {
-    assert([1,2,3].indexOf(3) === 3)
+    assert([1, 2, 3].indexOf(3) === 3)
   })
 }
 ```
@@ -37,12 +37,12 @@ var assert = GASUnit.assert
 function test_reverse () {
   // This test will success.
   test('Array#indexOf() should return -1 when not present', function () {
-    assert([1,2,3].indexOf(4) === -1)
+    assert([1, 2, 3].indexOf(4) === -1)
   })
 
   // This test will fail.
   test('Array#indexOf() should return the index when present', function () {
-    assert([1,2,3].indexOf(3) === 3)
+    assert([1, 2, 3].indexOf(3) === 3)
   })
 }
 ```
@@ -57,12 +57,12 @@ var assert = GASUnit.assert
 function test_reverse () {
   // This test will success.
   test('Array#indexOf() should return -1 when not present', function () {
-    assert([1,2,3].indexOf(4) === -1)
+    assert([1, 2, 3].indexOf(4) === -1)
   })
 
   // This test will fail.
   test('Array#indexOf() should return the index when present', function () {
-    assert([1,2,3].indexOf(3) === 3)
+    assert([1, 2, 3].indexOf(3) === 3)
   })
 }
 ```
