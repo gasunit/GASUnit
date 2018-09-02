@@ -13,7 +13,7 @@ project key: `MSnMmw8hLWgjUG6uKSTQBEzVZgzu5bsVr`
 var test = GASUnit.test
 var assert = GASUnit.assert
   
-function test_reverse () {
+function test () {
   // This test will success.
   test('Array#indexOf() should return -1 when not present', function () {
     assert([1, 2, 3].indexOf(4) === -1)
@@ -31,7 +31,7 @@ function test_reverse () {
 var test = GASUnit.slack('https://...')
 var assert = GASUnit.assert
 
-function test_reverse () {
+function test () {
   // This test will success.
   test('Array#indexOf() should return -1 when not present', function () {
     assert([1, 2, 3].indexOf(4) === -1)
@@ -51,7 +51,7 @@ You can use properties as environment variables.
 var test = GASUnit.slack(PropertiesService.getScriptProperties().getProperty('WEBHOOK_URL'))
 var assert = GASUnit.assert
 
-function test_reverse () {
+function test () {
   // This test will success.
   test('Array#indexOf() should return -1 when not present', function () {
     assert([1, 2, 3].indexOf(4) === -1)
