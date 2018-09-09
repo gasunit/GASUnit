@@ -1,5 +1,5 @@
 /**
-* To execute test, remove final underscore temporarily.
+* NOTE: To execute test, remove final underscore temporarily.
 */
 function test_all_ () {
   test_test_()
