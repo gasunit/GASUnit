@@ -1,33 +1,101 @@
 /**
-* Execute test using Logger.
-* @param {String} name
-* @param {Function} tester
+* Execute test by Exports style.
+* 
+*   exports({
+*     'Array': {
+*       '#indexOf()': {
+*         'should return -1 when not present': function () {
+*           assert([1, 2, 3].indexOf(4) === -1)
+*         },
+*         'should return the index when present': function () {
+*           assert([1, 2, 3].indexOf(3) === 3)
+*         }
+*       }
+*     }
+*   })
+* 
+* @param {Object} test
 */
-function test (name, tester) {
-  try {
-    tester()
-  } catch (e) {
-    Logger.log('✗ ' + name + '\n\t' + e.message + '\n' + e.stack)
-    return
-  }
-  Logger.log('✓ ' + name)
+function exports (test) {
+  var result = exportsEach_(test)
+  Logger.log(format_(result))
 }
 
 /**
-* Return test function which use Slack.
-* @param {String} url - Webhook URL
-* @return {Function} test function
+* Execute test by Exports style and return result.
+* @param {Object} test
+* @return {Object} result
 */
-function slack (url) {
-  return function (name, tester) {
-    try {
-      tester()
-    } catch (e) {
-      postToSlack_(url, createFailmessage_(name, e))
-      return
+function exportsEach_ (test) {
+  for (var key in test) {
+    var value = test[key]
+    if (isPlainObject_(value)) {
+      test[key] = exportsEach_(value)
+      continue
     }
-    postToSlack_(url, createSuccessMessage_(name))
+    if (isFunction_(value)) {
+      try {
+        value()
+      } catch (e) {
+        test[key] = {
+          passing: false,
+          message: e.message,
+          stack: e.stack
+        }
+        continue
+      }
+      test[key] = {
+        passing: true
+      }
+    }
   }
+  return test
+}
+
+/**
+* Create result string for Logger.
+* @param {Object} result
+* @return {String} result string
+*/
+function format_ (result) {
+  var lines = formatEach_(result)
+  return '\n' + lines.join('\n')
+}
+
+/**
+* Create result lines for Logger.
+* @param {Object} result
+* @param {Number} indentLevel
+* @return {String[]} result lines
+*/
+function formatEach_ (result, indentLevel) {
+  indentLevel = indentLevel || 0
+  var lines = []
+  for (var key in result) {
+    var value = result[key]
+    var passing = value.passing
+    if (isBoolean_(passing)) {
+      if (passing) {
+        lines.push(indent_(indentLevel) + '✓ ' + key)
+      } else {
+        lines.push(indent_(indentLevel) + '✗ ' + key)
+        var message = value.message
+        if (message) {
+          lines.push(indent_(indentLevel + 1) + message)
+        }
+        var stack = value.stack
+        if (stack) {
+          var stackLines = stack.split('\n')
+          lines = lines.concat(stackLines)
+        }
+      }
+    } else {
+      lines.push(indent_(indentLevel) + key)
+      var innerLines = formatEach_(value, indentLevel + 1)
+      lines = lines.concat(innerLines)
+    }
+  }
+  return lines
 }
 
 /**
@@ -39,59 +107,4 @@ function assert (value) {
   if (!value) {
     throw new Error('value is falsy.')
   }
-}
-
-/**
-* Create success message for Slack.
-* @param {String} name
-* @return {String} message
-*/
-function createSuccessMessage_ (name) {
-  var text = '✓ ' + name
-  var message = {
-    attachments: [
-      {
-        fallback: text,
-        color: '#4CAF50',
-        text: text
-      }
-    ]
-  }
-  return JSON.stringify(message)
-}
-
-/**
-* Create fail message for Slack.
-* @param {String} name
-* @param {Error} e
-* @return {String} message
-*/
-function createFailmessage_ (name, e) {
-  var text = '✗ ' + name + '\n\t' + e.message + '\n' + e.stack
-  var message = {
-    attachments: [
-      {
-        fallback: text,
-        color: '#FF5722',
-        text: text
-      }
-    ]
-  }
-  return JSON.stringify(message)
-}
-
-/**
-* Post message to Slack.
-* @param {String} url - Webhook URL
-* @param {String} message
-*/
-function postToSlack_ (url, message) {
-  var params = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    payload: message
-  }
-  UrlFetchApp.fetch(url, params)
 }

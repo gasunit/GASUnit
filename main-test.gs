@@ -1,270 +1,218 @@
 /**
-* NOTE: To execute test, remove final underscore temporarily.
+* NOTE: To execute test, remove final underscore of function name temporarily.
 */
-function test_all_ () {
-  test_test_()
-  test_slack_()
-  test_assert_()
-  test_createSuccessMessage_()
-  test_createFailmessage_()
-  test_postToSlack_()
-}
 
-function test_test_ () {
-  test('test() success', function () {
-    var originallLogger = Logger
-    try {
-      var argumentsList = []
-      Logger = {
-        log: function () {
-          argumentsList.push(arguments)
+function test_exports_ () {
+  exports({
+    'exports(test)': {
+      'should execute test by Exports style': function () {
+        var originallLogger = Logger
+        var originalExportsEach = exportsEach_
+        var originalFormat = format_
+        try {
+          var argsList = []
+          Logger = {
+            log: function () {
+              argsList.push(arguments)
+            }
+          }
+          exportsEach_ = function (test) {
+            return {
+              test: test
+            }
+          }
+          format_ = function (result) {
+            return {
+              result: result
+            }
+          }
+
+          var test = {}
+          exports(test)
+
+          assert(argsList.length === 1)
+          var args = argsList[0]
+          assert(args.length === 1)
+          assert(args[0].result.test === test)
+        } finally {
+          Logger = originallLogger
+          exportsEach_ = originalExportsEach
+          format_ = originalFormat
         }
       }
-
-      var name = 'test_name'
-      var count = 0
-      test(name, function () {
-        count++
-      })
-
-      assert(count === 1)
-      assert(argumentsList.length === 1)
-      var arguments = argumentsList[0]
-      assert(arguments.length === 1)
-      assert(arguments[0] === '✓ ' + name)
-    } finally {
-      Logger = originallLogger
-    }
-  })
-
-  test('test() fail', function () {
-    var originallLogger = Logger
-    try {
-      var argumentsList = []
-      Logger = {
-        log: function () {
-          argumentsList.push(arguments)
-        }
-      }
-
-      var name = 'test_name'
-      var e = {
-        message: 'test_error_message',
-        stack: 'test_error_stack'
-      }
-      var count = 0
-      test(name, function () {
-        count++
-        throw e
-      })
-
-      assert(count === 1)
-      assert(argumentsList.length === 1)
-      var arguments = argumentsList[0]
-      assert(arguments.length === 1)
-      assert(arguments[0] === '✗ ' + name + '\n\t' + e.message + '\n' + e.stack)
-    } finally {
-      Logger = originallLogger
     }
   })
 }
 
-function test_slack_ () {
-  test('slack()', function () {
-    var testFunction = slack('test_url')
-    assert(typeof testFunction === 'function')
-  })
-
-  test('slack() success', function () {
-    var originallPostToSlack = postToSlack_
-    var originalCreateSuccessMessage = createSuccessMessage_
-    try {
-      var argumentsList = []
-      postToSlack_ = function () {
-        argumentsList.push(arguments)
-      }
-      createSuccessMessage_ = function (name) {
-        return {
-          name: name
+function test_exportsEach_ () {
+  exports({
+    'exportsEach_(test)': {
+      'should execute test by Exports style and return result': function () {
+        var test = {
+          'Array': {
+            '#indexOf()': {
+              'should return -1 when not present': function () {
+                assert([1, 2, 3].indexOf(4) === -1)
+              },
+              'should return the index when present': function () {
+                assert([1, 2, 3].indexOf(3) === 3)
+              }
+            }
+          }
         }
+        var result = exportsEach_(test)
+
+        assert(Object.keys(result).length === 1)
+        var result2 = result['Array']
+        assert(result2 !== undefined)
+        assert(Object.keys(result2).length === 1)
+        var result3 = result2['#indexOf()']
+        assert(result3 !== undefined)
+        assert(Object.keys(result3).length === 2)
+        var result4a = result3['should return -1 when not present']
+        assert(result4a !== undefined)
+        assert(Object.keys(result4a).length === 1)
+        assert(result4a.passing === true)
+        assert(result4a.message === undefined)
+        assert(result4a.stack === undefined)
+        var result4b = result3['should return the index when present']
+        assert(result4b !== undefined)
+        assert(Object.keys(result4b).length === 3)
+        assert(result4b.passing === false)
+        assert(result4b.message !== undefined)
+        assert(result4b.stack !== undefined)
       }
-
-      var url = 'test_url'
-      var testFunction = slack(url)
-      var name = 'test_name'
-      var count = 0
-      testFunction(name, function () {
-        count++
-      })
-
-      assert(count === 1)
-      assert(argumentsList.length === 1)
-      var arguments = argumentsList[0]
-      assert(arguments.length === 2)
-      assert(arguments[0] === url)
-      assert(arguments[1].name === name)
-    } finally {
-      postToSlack_ = originallPostToSlack
-      createSuccessMessage_ = originalCreateSuccessMessage
     }
   })
+}
 
-  test('slack() fail', function () {
-    var originallPostToSlack = postToSlack_
-    var originallCreateFailmessage = createFailmessage_
-    try {
-      var argumentsList = []
-      postToSlack_ = function () {
-        argumentsList.push(arguments)
+function test_format_ () {
+  exports({
+    'format_(result)': {
+      'should return result string for Logger': function () {
+        var result = {
+          'Array': {
+            '#indexOf()': {
+              'should return -1 when not present': {
+                passing: true
+              },
+              'should return the index when present': {
+                passing: false,
+                message: 'value is falsy.',
+                stack: 'at main:123\nat main-test:456'
+              }
+            }
+          }
+        }
+        var resultString = format_(result)
+
+        var resultLines = resultString.split('\n')
+        assert(resultLines.length === 8)
+        assert(resultLines[0] === '')
+        assert(resultLines[1] === 'Array')
+        assert(resultLines[2] === '  ' + '#indexOf()')
+        assert(resultLines[3] === '    ' + '✓ should return -1 when not present')
+        assert(resultLines[4] === '    ' + '✗ should return the index when present')
+        assert(resultLines[5] === '      ' + 'value is falsy.')
+        assert(resultLines[6] === 'at main:123')
+        assert(resultLines[7] === 'at main-test:456')
       }
-      createFailmessage_ = function (name, e) {
-        return {
-          name: name,
-          e: e
+    }
+  })
+}
+
+function test_formatEach_ () {
+  var result = {
+    'Array': {
+      '#indexOf()': {
+        'should return -1 when not present': {
+          passing: true
+        },
+        'should return the index when present': {
+          passing: false,
+          message: 'value is falsy.',
+          stack: 'at main:123\nat main-test:456'
         }
       }
+    }
+  }
 
-      var url = 'test_url'
-      var testFunction = slack(url)
-      var name = 'test_name'
-      var e = {
-        message: 'test_error_message',
-        stack: 'test_error_stack'
+  exports({
+    'formatEach_(obj, indentLevel)': {
+      'when indent level is not specified': {
+        'should return result line array for Logger, which is not indented': function () {
+          var resultLines = formatEach_(result)
+
+          assert(resultLines.length === 7)
+          assert(resultLines[0] === 'Array')
+          assert(resultLines[1] === '  ' + '#indexOf()')
+          assert(resultLines[2] === '    ' + '✓ should return -1 when not present')
+          assert(resultLines[3] === '    ' + '✗ should return the index when present')
+          assert(resultLines[4] === '      ' + 'value is falsy.')
+          assert(resultLines[5] === 'at main:123')
+          assert(resultLines[6] === 'at main-test:456')
+        }
+      },
+      'when indent level is specified': {
+        'should return result line array for Logger, which is indented': function () {
+          var indentLevel = 1
+          var resultLines = formatEach_(result, indentLevel)
+
+          assert(resultLines.length === 7)
+          var indent = indent_(indentLevel)
+          assert(resultLines[0] === indent + 'Array')
+          assert(resultLines[1] === indent + '  ' + '#indexOf()')
+          assert(resultLines[2] === indent + '    ' + '✓ should return -1 when not present')
+          assert(resultLines[3] === indent + '    ' + '✗ should return the index when present')
+          assert(resultLines[4] === indent + '      ' + 'value is falsy.')
+          assert(resultLines[5] === 'at main:123')
+          assert(resultLines[6] === 'at main-test:456')
+        }
       }
-      var count = 0
-      testFunction(name, function () {
-        count++
-        throw e
-      })
-
-      assert(count === 1)
-      assert(argumentsList.length === 1)
-      var arguments = argumentsList[0]
-      assert(arguments.length === 2)
-      assert(arguments[0] === url)
-      assert(arguments[1].name === name)
-      assert(arguments[1].e === e)
-    } finally {
-      postToSlack_ = originallPostToSlack
-      createFailmessage_ = originallCreateFailmessage
     }
   })
 }
 
 function test_assert_ () {
-  test('assert() success', function () {
-    var assertSuccess = function (value) {
-      try {
-        assert(value)
-      } catch (e) {
-        throw new Error('Test failed')
-      }
-    }
-    assertSuccess(true)
-    assertSuccess(1)
-    assertSuccess(' ')
-    assertSuccess({})
-    assertSuccess([])
-  })
+  exports({
+    'assert(value)': {
+      'when value is truthy': {
+        'should not throw Error': function () {
+          var assertNotThrow = function (value) {
+            try {
+              assert(value)
+            } catch (e) {
+              throw e
+            }
+          }
 
-  test('assert() fail', function () {
-    var assertFail = function (value) {
-      try {
-        assert(value)
-      } catch (e) {
-        assert(e.message === 'value is falsy.')
-        return
-      }
-      throw new Error('Test failed')
-    }
-    assertFail(false)
-    assertFail(0)
-    assertFail(NaN)
-    assertFail('')
-    assertFail(null)
-    assertFail(undefined)
-  })
-}
+          assertNotThrow(true)
+          assertNotThrow(1)
+          assertNotThrow(' ')
+          assertNotThrow({})
+          assertNotThrow([])
+        }
+      },
+      'when value is falsy': {
+        'should throw Error': function () {
+          var assertThrow = function (value) {
+            try {
+              assert(value)
+            } catch (e) {
+              assert(e.message === 'value is falsy.')
+              return
+            }
+            throw new Error('Test failed')
+          }
 
-function test_createSuccessMessage_ () {
-  test('createSuccessMessage_()', function () {
-    var name = 'test_name'
-    var message = createSuccessMessage_(name)
-
-    assert(typeof message === 'string')
-    var messageObj = JSON.parse(message)
-    assert(messageObj instanceof Object)
-    assert(hasKeys_(messageObj, ['attachments']))
-    var attachments = messageObj.attachments
-    assert(Array.isArray(attachments))
-    assert(attachments.length === 1)
-    var attachment = attachments[0]
-    assert(hasKeys_(attachment, ['fallback', 'color', 'text']))
-    assert(attachment.fallback === '✓ ' + name)
-    assert(attachment.color === '#4CAF50')
-    assert(attachment.text === '✓ ' + name)
-  })
-}
-
-function test_createFailmessage_ () {
-  test('createFailmessage_()', function () {
-    var name = 'test_name'
-    var e = {
-      message: 'test_error_message',
-      stack: 'test_error_stack'
-    }
-    var message = createFailmessage_(name, e)
-
-    assert(typeof message === 'string')
-    var messageObj = JSON.parse(message)
-    assert(messageObj instanceof Object)
-    assert(hasKeys_(messageObj, ['attachments']))
-    var attachments = messageObj.attachments
-    assert(Array.isArray(attachments))
-    assert(attachments.length === 1)
-    var attachment = attachments[0]
-    assert(hasKeys_(attachment, ['fallback', 'color', 'text']))
-    assert(attachment.fallback === '✗ ' + name + '\n\t' + e.message + '\n' + e.stack)
-    assert(attachment.color === '#FF5722')
-    assert(attachment.text === '✗ ' + name + '\n\t' + e.message + '\n' + e.stack)
-  })
-}
-
-function test_postToSlack_ () {
-  test('postToSlack_()', function () {
-    var originallUrlFetchApp = UrlFetchApp
-    try {
-      var argumentsList = []
-      UrlFetchApp = {
-        fetch: function () {
-          argumentsList.push(arguments)
+          assertThrow(false)
+          assertThrow(0)
+          assertThrow(NaN)
+          assertThrow('')
+          assertThrow(null)
+          assertThrow(undefined)
         }
       }
-
-      var url = 'test_url'
-      var message = 'test_message'
-      postToSlack_(url, message)
-
-      assert(argumentsList.length === 1)
-      var arguments = argumentsList[0]
-      assert(arguments.length === 2)
-      assert(arguments[0] === url)
-      var params = arguments[1]
-      assert(hasKeys_(params, ['method', 'payload', 'headers']))
-      assert(params.method === 'POST')
-      assert(params.payload === message)
-      var headers = params.headers
-      assert(hasKeys_(headers, ['Content-Type']))
-      assert(headers['Content-Type'] === 'application/json')
-    } finally {
-      UrlFetchApp = originallUrlFetchApp
     }
-  })
-}
-
-function hasKeys_ (obj, keys) {
-  var objKeys = Object.keys(obj)
-  return keys.every(function (key) {
-    return objKeys.indexOf(key) > -1
   })
 }
