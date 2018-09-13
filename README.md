@@ -1,5 +1,3 @@
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 # GASUnit
 Testing library for Google Apps Script.
 Result will be logged to Logger, or posted to Slack.
