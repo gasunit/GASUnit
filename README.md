@@ -20,7 +20,7 @@ function test_array () {
   exports({
     'Array': {
       '#indexOf()': {
-        'should return -1 when not present': function() {
+        'should return -1 when not present': function () {
           assert([1, 2, 3].indexOf(4) === -1)
         },
         'should return the index when present': function () {
@@ -41,7 +41,7 @@ function test_array () {
   exports({
     'Array': {
       '#indexOf()': {
-        'should return -1 when not present': function() {
+        'should return -1 when not present': function () {
           assert([1, 2, 3].indexOf(4) === -1)
         },
         'should return the index when present': function () {
@@ -64,7 +64,7 @@ function test_array () {
   exports({
     'Array': {
       '#indexOf()': {
-        'should return -1 when not present': function() {
+        'should return -1 when not present': function () {
           assert([1, 2, 3].indexOf(4) === -1)
         },
         'should return the index when present': function () {
