@@ -1,15 +1,15 @@
 # GASUnit
 Testing library for Google Apps Script.
 Result will be logged to Logger, or posted to Slack.
-You can use **Expoerts** style to write tests (for now).
+You can use **Exports** style to write tests (for now).
 
 ## Usage
 ### Add library
 project key: `MSnMmw8hLWgjUG6uKSTQBEzVZgzu5bsVr`
 
 ### Write tests
-#### Expoerts style
-Expoerts style is inspired by [Mocha](https://mochajs.org/#exports).
+#### Exports style
+Exports style is inspired by [Mocha](https://mochajs.org/#exports).
 
 ##### Use Logger
 ```js
