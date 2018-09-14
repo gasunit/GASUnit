@@ -14,42 +14,42 @@
 *     }
 *   })
 * 
-* @param {Object} test
+* @param {Object} suite
 */
-function exports (test) {
-  var result = exportsEach_(test)
+function exports (suite) {
+  var result = exportsEach_(suite)
   Logger.log(format_(result))
 }
 
 /**
 * Execute test by Exports style and return result.
-* @param {Object} test
+* @param {Object} suite
 * @return {Object} result
 */
-function exportsEach_ (test) {
-  for (var key in test) {
-    var value = test[key]
+function exportsEach_ (suite) {
+  for (var key in suite) {
+    var value = suite[key]
     if (isPlainObject_(value)) {
-      test[key] = exportsEach_(value)
+      suite[key] = exportsEach_(value)
       continue
     }
     if (isFunction_(value)) {
       try {
         value()
       } catch (e) {
-        test[key] = {
+        suite[key] = {
           passing: false,
           message: e.message,
           stack: e.stack
         }
         continue
       }
-      test[key] = {
+      suite[key] = {
         passing: true
       }
     }
   }
-  return test
+  return suite
 }
 
 /**

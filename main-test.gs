@@ -4,7 +4,7 @@
 
 function test_exports_ () {
   exports({
-    'exports(test)': {
+    'exports(suite)': {
       'should execute test by Exports style': function () {
         var originallLogger = Logger
         var originalExportsEach = exportsEach_
@@ -16,9 +16,9 @@ function test_exports_ () {
               argsList.push(arguments)
             }
           }
-          exportsEach_ = function (test) {
+          exportsEach_ = function (suite) {
             return {
-              test: test
+              suite: suite
             }
           }
           format_ = function (result) {
@@ -27,13 +27,13 @@ function test_exports_ () {
             }
           }
 
-          var test = {}
-          exports(test)
+          var suite = {}
+          exports(suite)
 
           assert(argsList.length === 1)
           var args = argsList[0]
           assert(args.length === 1)
-          assert(args[0].result.test === test)
+          assert(args[0].result.suite === suite)
         } finally {
           Logger = originallLogger
           exportsEach_ = originalExportsEach
@@ -46,9 +46,9 @@ function test_exports_ () {
 
 function test_exportsEach_ () {
   exports({
-    'exportsEach_(test)': {
+    'exportsEach_(suite)': {
       'should execute test by Exports style and return result': function () {
-        var test = {
+        var suite = {
           'Array': {
             '#indexOf()': {
               'should return -1 when not present': function () {
@@ -60,7 +60,7 @@ function test_exportsEach_ () {
             }
           }
         }
-        var result = exportsEach_(test)
+        var result = exportsEach_(suite)
 
         assert(Object.keys(result).length === 1)
         var result2 = result['Array']
