@@ -20,9 +20,9 @@ function test_slack_ () {
             postToSlack_ = function () {
               argsList.push(arguments)
             }
-            exportsEach_ = function (test) {
+            exportsEach_ = function (suite) {
               return {
-                test: test
+                suite: suite
               }
             }
             formatForSlack_ = function (result) {
@@ -33,14 +33,14 @@ function test_slack_ () {
 
             var url = 'test_url'
             var exportsFunction = slack(url).exports
-            var test = {}
-            exportsFunction(test)
+            var suite = {}
+            exportsFunction(suite)
 
             assert(argsList.length === 1)
             var args = argsList[0]
             assert(args.length === 2)
             assert(args[0] === url)
-            assert(args[1].result.test === test)
+            assert(args[1].result.suite === suite)
           } finally {
             postToSlack_ = originallPostToSlack
             exportsEach_ = originalExportsEach

@@ -5,8 +5,8 @@
 */
 function slack (url) {
   return {
-    exports: function (test) {
-      var result = exportsEach_(test)
+    exports: function (suite) {
+      var result = exportsEach_(suite)
       postToSlack_(url, formatForSlack_(result))
     }
   }
