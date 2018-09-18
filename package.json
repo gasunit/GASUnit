@@ -1,0 +1,8 @@
+{
+  "name": "gasunit",
+  "description": "Testing library for Google Apps Script",
+  "private": true,
+  "devDependencies": {
+    "clasp": "^0.1.0"
+  }
+}
