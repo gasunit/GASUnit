@@ -6,7 +6,8 @@
     "login": "clasp login",
     "logout": "clasp logout",
     "pull": "clasp pull",
-    "push": "clasp push"
+    "push": "clasp push",
+    "open": "clasp open"
   },
   "devDependencies": {
     "clasp": "^0.1.0"
