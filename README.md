@@ -79,3 +79,25 @@ function test_array () {
 ## Assertion
 GASUnit provides minimum assert function which verify whether value is truthy.
 You can add any assertion library and use it.
+
+## Development
+
+```sh
+# install dependencies
+$ npm install
+
+# login to Google Drive
+$ npm run login
+
+# logout from Google Drive
+$ npm run logout
+
+# pull code from Google Drive
+$ npm run pull
+
+# push code to Google Drive
+$ npm run push
+
+# open project page on Google Drive
+$ npm run open
+```

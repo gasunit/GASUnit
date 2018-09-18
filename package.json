@@ -1,0 +1,15 @@
+{
+  "name": "gasunit",
+  "description": "Testing library for Google Apps Script",
+  "private": true,
+  "scripts": {
+    "login": "clasp login",
+    "logout": "clasp logout",
+    "pull": "clasp pull",
+    "push": "clasp push",
+    "open": "clasp open"
+  },
+  "devDependencies": {
+    "clasp": "^0.1.0"
+  }
+}
