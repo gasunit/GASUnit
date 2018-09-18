@@ -1,6 +1,6 @@
 /**
 * Execute test by Exports style.
-* 
+*
 *   exports({
 *     'Array': {
 *       '#indexOf()': {
@@ -13,7 +13,7 @@
 *       }
 *     }
 *   })
-* 
+*
 * @param {Object} suite
 */
 function exports (suite) {
