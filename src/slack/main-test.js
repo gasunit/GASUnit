@@ -2,6 +2,7 @@
 * NOTE: To execute test, remove final underscore of function name temporarily.
 */
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_slack_ () {
   exports({
     'slack(url)': {
@@ -52,6 +53,7 @@ function test_slack_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_formatForSlack_ () {
   exports({
     'formatForSlack_(result)': {
@@ -126,6 +128,7 @@ function test_formatForSlack_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_formatForSlackEach_ () {
   var result = {
     'Array': {
@@ -178,6 +181,7 @@ function test_formatForSlackEach_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_postToSlack_ () {
   exports({
     'postToSlack_(url, message)': {
@@ -185,6 +189,7 @@ function test_postToSlack_ () {
         var originallUrlFetchApp = UrlFetchApp
         try {
           var argsList = []
+          /* eslint-disable-next-line no-global-assign */
           UrlFetchApp = {
             fetch: function () {
               argsList.push(arguments)
@@ -205,6 +210,7 @@ function test_postToSlack_ () {
           var headers = params.headers
           assert(headers['Content-Type'] === 'application/json')
         } finally {
+          /* eslint-disable-next-line no-global-assign */
           UrlFetchApp = originallUrlFetchApp
         }
       }

@@ -3,6 +3,7 @@
 * @param {Object} value
 * @return {Boolean} whether value is plain object
 */
+/* eslint-disable-next-line no-unused-vars */
 function isPlainObject_ (value) {
   return value !== null &&
     value !== undefined &&
@@ -23,6 +24,7 @@ function isBoolean_ (value) {
 * @param {Object} value
 * @return {Boolean} whether value is function
 */
+/* eslint-disable-next-line no-unused-vars */
 function isFunction_ (value) {
   return typeof value === 'function'
 }
@@ -32,6 +34,7 @@ function isFunction_ (value) {
 * @param {Number} level - indent level
 * @return {String} indent string
 */
+/* eslint-disable-next-line no-unused-vars */
 function indent_ (level) {
   var indent = ''
   for (var i = 0; i < level; i++) {
@@ -45,6 +48,7 @@ function indent_ (level) {
 * @param {Object} result
 * @return {Boolean} whether all test is passing
 */
+/* eslint-disable-next-line no-unused-vars */
 function isAllPassing_ (result) {
   for (var key in result) {
     var value = result[key]

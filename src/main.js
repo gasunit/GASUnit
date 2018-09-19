@@ -16,6 +16,7 @@
 *
 * @param {Object} suite
 */
+/* eslint-disable-next-line no-unused-vars */
 function exports (suite) {
   var result = exportsEach_(suite)
   Logger.log(format_(result))
@@ -103,6 +104,7 @@ function formatEach_ (result, indentLevel) {
 * @param {Object} value
 * @throws {Error} when value is falsy
 */
+/* eslint-disable-next-line no-unused-vars */
 function assert (value) {
   if (!value) {
     throw new Error('value is falsy.')
