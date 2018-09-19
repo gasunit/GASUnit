@@ -1,3 +1,5 @@
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 # GASUnit
 Testing library for Google Apps Script.
 Result will be logged to Logger, or posted to Slack.
@@ -85,6 +87,9 @@ You can add any assertion library and use it.
 ```sh
 # install dependencies
 $ npm install
+
+# lint code by ESLint
+$ npm run lint
 
 # login to Google Drive
 $ npm run login

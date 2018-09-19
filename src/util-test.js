@@ -2,13 +2,14 @@
 * NOTE: To execute test, remove final underscore of function name temporarily.
 */
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_isPlainObject_ () {
   exports({
     'isPlainObject_(value)': {
       'when value is plain object': {
         'should return true': function () {
           assert(isPlainObject_({}) === true)
-          assert(isPlainObject_({foo: 'Foo'}) === true)
+          assert(isPlainObject_({ foo: 'Foo' }) === true)
         }
       },
       'when value is not plain object': {
@@ -24,6 +25,7 @@ function test_isPlainObject_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_isBoolean_ () {
   exports({
     'isBoolean_(value)': {
@@ -35,8 +37,6 @@ function test_isBoolean_ () {
       },
       'when value is not boolean': {
         'should return false': function () {
-          assert(isBoolean_(new Boolean(true)) === false)
-          assert(isBoolean_(new Boolean(false)) === false)
           assert(isBoolean_(null) === false)
           assert(isBoolean_(undefined) === false)
         }
@@ -45,6 +45,7 @@ function test_isBoolean_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_isFunction_ () {
   exports({
     'isFunction_(value)': {
@@ -66,6 +67,7 @@ function test_isFunction_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_indent_ () {
   exports({
     'indent_(level)': {
@@ -78,6 +80,7 @@ function test_indent_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars, camelcase */
 function test_isAllPassing_ () {
   exports({
     'isAllPassing_(result)': {

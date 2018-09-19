@@ -2,6 +2,7 @@
 * NOTE: To execute test, remove final underscore of function name temporarily.
 */
 
+/* eslint-disable-next-line no-unused-vars,camelcase */
 function test_exports_ () {
   exports({
     'exports(suite)': {
@@ -11,6 +12,7 @@ function test_exports_ () {
         var originalFormat = format_
         try {
           var argsList = []
+          /* eslint-disable-next-line no-global-assign */
           Logger = {
             log: function () {
               argsList.push(arguments)
@@ -35,6 +37,7 @@ function test_exports_ () {
           assert(args.length === 1)
           assert(args[0].result.suite === suite)
         } finally {
+          /* eslint-disable-next-line no-global-assign */
           Logger = originallLogger
           exportsEach_ = originalExportsEach
           format_ = originalFormat
@@ -44,6 +47,7 @@ function test_exports_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars,camelcase */
 function test_exportsEach_ () {
   exports({
     'exportsEach_(suite)': {
@@ -86,6 +90,7 @@ function test_exportsEach_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars,camelcase */
 function test_format_ () {
   exports({
     'format_(result)': {
@@ -121,6 +126,7 @@ function test_format_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars,camelcase */
 function test_formatEach_ () {
   var result = {
     'Array': {
@@ -173,6 +179,7 @@ function test_formatEach_ () {
   })
 }
 
+/* eslint-disable-next-line no-unused-vars,camelcase */
 function test_assert_ () {
   exports({
     'assert(value)': {

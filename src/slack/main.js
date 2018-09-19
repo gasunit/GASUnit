@@ -3,6 +3,7 @@
 * @param {String} url - Webhook URL
 * @return {Object} object which has test functions for Slack
 */
+/* eslint-disable-next-line no-unused-vars */
 function slack (url) {
   return {
     exports: function (suite) {
