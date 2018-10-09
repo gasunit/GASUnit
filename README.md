@@ -36,7 +36,8 @@ function test_array () {
 
 ##### Use Slack
 ```js
-var exports = GASUnit.slack('https://...').exports
+var WEBHOOK_URL = 'https://...'
+var exports = GASUnit.slack(WEBHOOK_URL).exports
 var assert = GASUnit.assert
 
 function test_array () {
