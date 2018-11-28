@@ -60,7 +60,8 @@ If you're publishing source code, should **not** write webhook url as a literal.
 You can use properties as environment variables.
 
 ```js
-var exports = GASUnit.slack(PropertiesService.getScriptProperties().getProperty('WEBHOOK_URL')).exports
+var WEBHOOK_URL = PropertiesService.getScriptProperties().getProperty('WEBHOOK_URL')
+var exports = GASUnit.slack(WEBHOOK_URL).exports
 var assert = GASUnit.assert
 
 function test_array () {
