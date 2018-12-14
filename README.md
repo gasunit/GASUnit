@@ -80,6 +80,28 @@ function test_array () {
 }
 ```
 
+##### Use Logger or Slack
+```js
+var WEBHOOK_URL = PropertiesService.getScriptProperties().getProperty('WEBHOOK_URL')
+var exports = WEBHOOK_URL ? GASUnit.slack(WEBHOOK_URL).exports : GASUnit.exports
+var assert = GASUnit.assert
+
+function test_array () {
+  exports({
+    'Array': {
+      '#indexOf()': {
+        'should return -1 when not present': function () {
+          assert([1, 2, 3].indexOf(4) === -1)
+        },
+        'should return the index when present': function () {
+          assert([1, 2, 3].indexOf(3) === 3)
+        }
+      }
+    }
+  })
+}
+```
+
 ## Assertion
 GASUnit provides minimum assert function which verify whether value is truthy.
 You can add any assertion library and use it.
@@ -108,3 +130,6 @@ $ npm run push
 # open project page on Google Drive
 $ npm run open
 ```
+
+## Example
+see [gasunit/example](https://github.com/gasunit/example)
