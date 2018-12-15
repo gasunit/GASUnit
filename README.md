@@ -133,3 +133,6 @@ $ npm run open
 
 ## Example
 see [gasunit/example](https://github.com/gasunit/example)
+
+## Article
+* [Google Apps Script用のテストライブラリ「GASUnit」の紹介 - Qiita](https://qiita.com/munieru_jp/items/101ee00c6906847df750)
