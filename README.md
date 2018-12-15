@@ -1,8 +1,8 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 # GASUnit
-Testing library for Google Apps Script.  
-Result will be logged to Logger, or posted to Slack.  
+Testing library for Google Apps Script.
+Result will be logged to Logger, or posted to Slack.
 You can use **Exports** style to write tests (for now).
 
 ## Usage
@@ -106,7 +106,7 @@ function test_array () {
 ```
 
 ## Assertion
-GASUnit provides minimum assert function which verify whether value is truthy.  
+GASUnit provides minimum assert function which verify whether value is truthy.
 You can add any assertion library and use it.
 
 ## Development
