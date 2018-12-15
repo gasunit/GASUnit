@@ -1,8 +1,8 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 # GASUnit
-Testing library for Google Apps Script.
-Result will be logged to Logger, or posted to Slack.
+Testing library for Google Apps Script.  
+Result will be logged to Logger, or posted to Slack.  
 You can use **Exports** style to write tests (for now).
 
 ## Usage
@@ -13,7 +13,8 @@ project key: `MSnMmw8hLWgjUG6uKSTQBEzVZgzu5bsVr`
 #### Exports style
 Exports style is inspired by [Mocha](https://mochajs.org/#exports).
 
-##### Use Logger
+Use Logger:
+
 ```js
 var exports = GASUnit.exports
 var assert = GASUnit.assert
@@ -34,7 +35,8 @@ function test_array () {
 }
 ```
 
-##### Use Slack
+Use Slack:
+
 ```js
 var WEBHOOK_URL = 'https://...'
 var exports = GASUnit.slack(WEBHOOK_URL).exports
@@ -80,7 +82,8 @@ function test_array () {
 }
 ```
 
-##### Use Logger or Slack
+Or you can...
+
 ```js
 var WEBHOOK_URL = PropertiesService.getScriptProperties().getProperty('WEBHOOK_URL')
 var exports = WEBHOOK_URL ? GASUnit.slack(WEBHOOK_URL).exports : GASUnit.exports
@@ -103,11 +106,10 @@ function test_array () {
 ```
 
 ## Assertion
-GASUnit provides minimum assert function which verify whether value is truthy.
+GASUnit provides minimum assert function which verify whether value is truthy.  
 You can add any assertion library and use it.
 
 ## Development
-
 ```sh
 # install dependencies
 $ npm install
