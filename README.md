@@ -109,7 +109,8 @@ function test_array () {
 
 ## Assertion
 GASUnit provides minimum assert function which verify whether value is truthy.
-You can use any assertion library, such as [AssertGAS](https://github.com/gasunit/AssertGAS).
+You can use any assertion library (for Google Apps Script).
+GASUnit also provides [AssertGAS](https://github.com/gasunit/AssertGAS) as official assertion library.
 
 ## Development
 See [package.json](package.json)
