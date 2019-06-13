@@ -3,6 +3,7 @@
   "description": "Testing library for Google Apps Script",
   "private": true,
   "scripts": {
+    "start": "npm run watch:push",
     "lint": "eslint --ext .js src",
     "login": "clasp login",
     "logout": "clasp logout",
