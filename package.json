@@ -11,6 +11,7 @@
     "open": "clasp open"
   },
   "devDependencies": {
+    "@types/google-apps-script": "0.0.53",
     "clasp": "^0.1.0",
     "eslint": "^5.6.0",
     "eslint-config-standard": "^12.0.0",
