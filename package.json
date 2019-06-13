@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm run watch:push",
-    "lint": "eslint --ext .js src",
+    "lint": "eslint --ext .js,.ts --ignore-path .gitignore src",
     "login": "clasp login",
     "logout": "clasp logout",
     "pull": "clasp pull",
