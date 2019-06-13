@@ -13,7 +13,8 @@
     "push": "clasp push",
     "open": "clasp open",
     "watch": "npm-run-all -p watch:*",
-    "watch:push": "clasp push --watch"
+    "watch:push": "clasp push --watch",
+    "watch:test": "ts-mocha --watch --watch-extensions ts \"test/**/*.ts\""
   },
   "devDependencies": {
     "@google/clasp": "^2.1.0",
