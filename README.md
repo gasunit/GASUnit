@@ -107,7 +107,7 @@ function test_array () {
 
 ## Assertion
 GASUnit provides minimum assert function which verify whether value is truthy.
-You can add any assertion library and use it.
+You can use any assertion library, such as [AssertGAS](https://github.com/gasunit/AssertGAS).
 
 ## Development
 ```sh
