@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm run watch:push",
+    "test": "ts-mocha \"test/**/*.ts\"",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore src",
     "fix": "eslint --fix --ext .ts --ignore-path .gitignore src",
     "login": "clasp login",
