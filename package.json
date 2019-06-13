@@ -8,7 +8,8 @@
     "logout": "clasp logout",
     "pull": "clasp pull",
     "push": "clasp push",
-    "open": "clasp open"
+    "open": "clasp open",
+    "watch:push": "clasp push --watch"
   },
   "devDependencies": {
     "@google/clasp": "^2.1.0",
