@@ -112,31 +112,11 @@ GASUnit provides minimum assert function which verify whether value is truthy.
 You can use any assertion library, such as [AssertGAS](https://github.com/gasunit/AssertGAS).
 
 ## Development
-```sh
-# install dependencies
-$ npm install
-
-# lint code by ESLint
-$ npm run lint
-
-# login to Google Drive
-$ npm run login
-
-# logout from Google Drive
-$ npm run logout
-
-# pull code from Google Drive
-$ npm run pull
-
-# push code to Google Drive
-$ npm run push
-
-# open project page on Google Drive
-$ npm run open
-```
+See [package.json](package.json)
 
 ## Example
-see [gasunit/example](https://github.com/gasunit/example)
+You can see some example in [gasunit/example](https://github.com/gasunit/example)
 
 ## Article
+### Japanese
 * [Google Apps Script用のテストライブラリ「GASUnit」の紹介 - Qiita](https://qiita.com/munieru_jp/items/101ee00c6906847df750)
