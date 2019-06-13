@@ -9,6 +9,7 @@
     "pull": "clasp pull",
     "push": "clasp push",
     "open": "clasp open",
+    "watch": "npm-run-all -p watch:*",
     "watch:push": "clasp push --watch"
   },
   "devDependencies": {
