@@ -118,7 +118,7 @@ GASUnit also provides [AssertGAS](https://github.com/gasunit/AssertGAS) as offic
 See [package.json](package.json)
 
 ## Example
-You can see some example in [gasunit/example](https://github.com/gasunit/example)
+See [gasunit/example](https://github.com/gasunit/example)
 
 ## Article
 ### Japanese
