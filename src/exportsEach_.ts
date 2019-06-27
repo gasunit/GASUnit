@@ -5,29 +5,30 @@ import isPlainObject_ from './isPlainObject_'
 /**
 * Execute test by Exports style and return result.
 */
-function exportsEach_ (suite: object) :object {
-  for (var key in suite) {
-    var value = suite[key]
-    if (isPlainObject_(value)) {
-      suite[key] = exportsEach_(value)
-      continue
+function exportsEach_ (suite: object): object {
+  Object.keys(suite).forEach(key => {
+    if (isPlainObject_(suite[key])) {
+      const innerSuite: object = suite[key]
+      suite[key] = exportsEach_(innerSuite)
+      return
     }
-    if (isFunction_(value)) {
+    if (isFunction_(suite[key])) {
+      const func: Function = suite[key]
       try {
-        value()
+        func()
       } catch (e) {
         suite[key] = {
           passing: false,
           message: e.message,
           stack: e.stack
         }
-        continue
+        return
       }
       suite[key] = {
         passing: true
       }
     }
-  }
+  })
   return suite
 }
 

@@ -4,8 +4,8 @@ import formatEach_ from './formatEach_'
 /**
 * Create result string for Logger.
 */
-function format_ (result: object) :string {
-  var lines = formatEach_(result)
+function format_ (result: object): string {
+  const lines = formatEach_(result)
   return '\n' + lines.join('\n')
 }
 

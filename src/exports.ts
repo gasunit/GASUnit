@@ -20,8 +20,9 @@ import format_ from './format_'
 */
 // @ts-ignore: Duplicate identifier 'exports'.
 function exports (suite: object) {
-  var result = exportsEach_(suite)
-  Logger.log(format_(result))
+  const result = exportsEach_(suite)
+  const message = format_(result)
+  Logger.log(message)
 }
 
 // NOTE: Below statement will be removed by clasp.

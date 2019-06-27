@@ -6,16 +6,15 @@ import isAllPassing_ from '../isAllPassing_'
 * Create result string for Slack.
 */
 function formatForSlack_ (result: object): string {
-  var lines = formatForSlackEach_(result)
-  var text = lines.join('\n')
-  var allPassing = isAllPassing_(result)
-  var color = allPassing ? '#4CAF50' : '#FF5722'
-  var message = {
+  const lines = formatForSlackEach_(result)
+  const text = lines.join('\n')
+  const color = isAllPassing_(result) ? '#4CAF50' : '#FF5722'
+  const message = {
     attachments: [
       {
         fallback: text,
-        color: color,
-        text: text
+        color,
+        text
       }
     ]
   }

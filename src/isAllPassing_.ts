@@ -5,10 +5,10 @@ import isBoolean_ from './isBoolean_'
 * Return whether all test is passing.
 */
 function isAllPassing_ (result: object): boolean {
-  for (var key in result) {
-    var value = result[key]
-    var passing = value.passing
-    if (isBoolean_(passing)) {
+  for (const key in result) {
+    const value = result[key]
+    if (isBoolean_(value.passing)) {
+      const passing: boolean = value.passing
       if (!passing) {
         return false
       }

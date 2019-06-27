@@ -3,8 +3,8 @@
 * Create indent string.
 */
 function indent_ (level: number): string {
-  var indent = ''
-  for (var i = 0; i < level; i++) {
+  let indent = ''
+  for (let i = 0; i < level; i++) {
     indent += '  '
   }
   return indent

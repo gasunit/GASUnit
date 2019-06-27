@@ -8,9 +8,10 @@ import postToSlack_ from './postToSlack_'
 */
 function slack (url: string): {exports: Function} {
   return {
-    exports: function (suite: object) {
-      var result = exportsEach_(suite)
-      postToSlack_(url, formatForSlack_(result))
+    exports: (suite: object) => {
+      const result = exportsEach_(suite)
+      const message = formatForSlack_(result)
+      postToSlack_(url, message)
     }
   }
 }

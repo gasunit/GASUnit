@@ -3,7 +3,7 @@
 * Post message to Slack.
 */
 function postToSlack_ (url: string, message: string) {
-  var params = {
+  const params = {
     method: 'post' as 'post',
     headers: {
       'Content-Type': 'application/json'
