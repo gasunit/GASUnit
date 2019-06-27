@@ -7,8 +7,13 @@ describe('#isAllPassing_()', () => {
   describe('when result object does not contain fail', () => {
     it('should return true', () => {
       const result = {
-        'test 1': {
-          passing: true
+        '1': {
+          'a': {
+            passing: true
+          },
+          'b': {
+            passing: true
+          }
         }
       }
       const value = isAllPassing_(result)
@@ -19,14 +24,11 @@ describe('#isAllPassing_()', () => {
   describe('when result object contains fail', () => {
     it('should return false', () => {
       const result = {
-        'test 1': {
-          passing: true
-        },
-        'test 2': {
-          'test 2-1': {
+        '1': {
+          'a': {
             passing: true
           },
-          'test 2-2': {
+          'b': {
             passing: false
           }
         }
