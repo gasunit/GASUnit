@@ -1,8 +1,10 @@
 {
   "extends": "standard",
   "plugins": [
+    "@typescript-eslint",
     "googleappsscript"
   ],
+  "parser": "@typescript-eslint/parser",
   "env": {
     "googleappsscript/googleappsscript": true
   },

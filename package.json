@@ -3,21 +3,35 @@
   "description": "Testing library for Google Apps Script",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js src",
+    "start": "npm run watch:push",
+    "test": "ts-mocha \"test/**/*.ts\"",
+    "lint": "eslint --ext .js,.ts --ignore-path .gitignore src",
+    "fix": "eslint --fix --ext .ts --ignore-path .gitignore src",
     "login": "clasp login",
     "logout": "clasp logout",
     "pull": "clasp pull",
     "push": "clasp push",
-    "open": "clasp open"
+    "open": "clasp open",
+    "watch": "npm-run-all -p watch:*",
+    "watch:push": "clasp push --watch",
+    "watch:test": "ts-mocha --watch --watch-extensions ts \"test/**/*.ts\""
   },
   "devDependencies": {
-    "clasp": "^0.1.0",
+    "@google/clasp": "^2.1.0",
+    "@types/google-apps-script": "0.0.53",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.0.8",
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
     "eslint": "^5.6.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-googleappsscript": "^1.0.1",
+    "eslint-plugin-googleappsscript": "^1.0.2",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.1.4",
+    "npm-run-all": "^4.1.5",
+    "ts-mocha": "^6.0.0"
   }
 }
