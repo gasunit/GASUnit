@@ -13,21 +13,19 @@
 *       }
 *     }
 *   })
-*
-* @param {Object} suite
 */
-/* eslint-disable-next-line no-unused-vars */
-function exports (suite) {
+/* eslint-disable no-unused-vars */
+// @ts-ignore: Duplicate identifier 'exports'.
+function exports (suite: object) {
   var result = exportsEach_(suite)
   Logger.log(format_(result))
 }
+/* eslint-enable no-unused-vars */
 
 /**
 * Execute test by Exports style and return result.
-* @param {Object} suite
-* @return {Object} result
 */
-function exportsEach_ (suite) {
+function exportsEach_ (suite: object) :object {
   for (var key in suite) {
     var value = suite[key]
     if (isPlainObject_(value)) {
@@ -55,22 +53,16 @@ function exportsEach_ (suite) {
 
 /**
 * Create result string for Logger.
-* @param {Object} result
-* @return {String} result string
 */
-function format_ (result) {
+function format_ (result: object) :string {
   var lines = formatEach_(result)
   return '\n' + lines.join('\n')
 }
 
 /**
 * Create result lines for Logger.
-* @param {Object} result
-* @param {Number} indentLevel
-* @return {String[]} result lines
 */
-function formatEach_ (result, indentLevel) {
-  indentLevel = indentLevel || 0
+function formatEach_ (result: object, indentLevel = 0) :string[] {
   var lines = []
   for (var key in result) {
     var value = result[key]
@@ -101,11 +93,9 @@ function formatEach_ (result, indentLevel) {
 
 /**
 * Test whether value is truthy.
-* @param {Object} value
-* @throws {Error} when value is falsy
 */
 /* eslint-disable-next-line no-unused-vars */
-function assert (value) {
+function assert (value: any) {
   if (!value) {
     throw new Error('value is falsy.')
   }
