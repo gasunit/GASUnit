@@ -1,12 +1,15 @@
+import exportsEach_ from '../exportsEach_'
+import indent_ from '../indent_'
+import isAllPassing_ from '../isAllPassing_'
+import isBoolean_ from '../isBoolean_'
+
 /**
 * Return object which has test functions for Slack.
-* @param {String} url - Webhook URL
-* @return {Object} object which has test functions for Slack
 */
 /* eslint-disable-next-line no-unused-vars */
-function slack (url) {
+function slack (url: string): object {
   return {
-    exports: function (suite) {
+    exports: function (suite: object) {
       var result = exportsEach_(suite)
       postToSlack_(url, formatForSlack_(result))
     }
@@ -15,10 +18,8 @@ function slack (url) {
 
 /**
 * Create result string for Slack.
-* @param {Object} result
-* @return {String} result string
 */
-function formatForSlack_ (result) {
+function formatForSlack_ (result: object): string {
   var lines = formatForSlackEach_(result)
   var text = lines.join('\n')
   var allPassing = isAllPassing_(result)
@@ -37,12 +38,8 @@ function formatForSlack_ (result) {
 
 /**
 * Create result lines for Slack.
-* @param {Object} result
-* @param {Number} indentLevel
-* @return {String[]} result lines
 */
-function formatForSlackEach_ (result, indentLevel) {
-  indentLevel = indentLevel || 0
+function formatForSlackEach_ (result: object, indentLevel = 0): string[] {
   var lines = []
   for (var key in result) {
     var value = result[key]
@@ -73,12 +70,10 @@ function formatForSlackEach_ (result, indentLevel) {
 
 /**
 * Post message to Slack.
-* @param {String} url - Webhook URL
-* @param {String} message
 */
-function postToSlack_ (url, message) {
+function postToSlack_ (url: string, message: string) {
   var params = {
-    method: 'POST',
+    method: 'post' as 'post',
     headers: {
       'Content-Type': 'application/json'
     },
