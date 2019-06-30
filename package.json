@@ -3,7 +3,7 @@
   "description": "Testing library for Google Apps Script",
   "private": true,
   "scripts": {
-    "start": "npm run watch:push",
+    "start": "npm run watch",
     "test": "ts-mocha \"test/**/*.ts\"",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore src",
     "fix": "eslint --fix --ext .ts --ignore-path .gitignore src",
