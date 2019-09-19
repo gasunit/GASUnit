@@ -8,21 +8,5 @@
   },
   "env": {
     "googleappsscript/googleappsscript": true
-  },
-  "globals": {
-    "exports": true,
-    "exportsEach_": true,
-    "format_": true,
-    "formatEach_": true,
-    "assert": true,
-    "slack": true,
-    "formatForSlack_": true,
-    "formatForSlackEach_": true,
-    "postToSlack_": true,
-    "isPlainObject_": true,
-    "isBoolean_": true,
-    "isFunction_": true,
-    "indent_": true,
-    "isAllPassing_": true
   }
 }
