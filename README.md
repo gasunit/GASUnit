@@ -114,6 +114,23 @@ GASUnit provides minimum assert function which verify whether value is truthy.
 You can use any assertion library (for Google Apps Script).
 GASUnit also provides [AssertGAS](https://github.com/gasunit/AssertGAS) as official assertion library.
 
+## Badge
+You can use the badge to show that your project is using GASUnit.
+
+[![tested by GASUnit](https://img.shields.io/badge/tested%20by-GASUnit-%234285F1)](https://github.com/gasunit/GASUnit)
+
+Markdown:
+
+```md
+[![tested by GASUnit](https://img.shields.io/badge/tested%20by-GASUnit-%234285F1)](https://github.com/gasunit/GASUnit)
+```
+
+HTML:
+
+```html
+<a href="https://github.com/gasunit/GASUnit"><img src="https://img.shields.io/badge/tested%20by-GASUnit-%234285F1" alt="tested by GASUnit"></a>
+```
+
 ## Development
 See [package.json](package.json)
 
