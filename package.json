@@ -28,7 +28,7 @@
     "eslint-config-standard-with-typescript": "^9.0.0",
     "eslint-plugin-googleappsscript": "^1.0.2",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.1.4",
