@@ -2,7 +2,7 @@
 /**
 * Post message to Slack.
 */
-function postToSlack_ (url: string, message: string) {
+function postToSlack_ (url: string, message: string): void {
   const params = {
     method: 'post' as 'post',
     headers: {

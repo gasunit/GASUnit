@@ -1,11 +1,12 @@
 import indent_ from './indent_'
 import isBoolean_ from './isBoolean_'
+import isTruthy_ from './isTruthy_'
 
 // NOTE: Below function will be private in Google Apps Script.
 /**
 * Create result lines for Logger.
 */
-function formatEach_ (result: object, indentLevel = 0) :string[] {
+function formatEach_ (result: object, indentLevel = 0): string[] {
   const lines: string[] = []
   Object.keys(result).forEach(key => {
     const value = result[key]
@@ -16,11 +17,11 @@ function formatEach_ (result: object, indentLevel = 0) :string[] {
       } else {
         lines.push(indent_(indentLevel) + '✗ ' + key)
         const message: string = value.message
-        if (message) {
+        if (isTruthy_(message)) {
           lines.push(indent_(indentLevel + 1) + message)
         }
         const stack: string = value.stack
-        if (stack) {
+        if (isTruthy_(stack)) {
           const stackLines = stack.split('\n')
           stackLines.forEach(line => lines.push(line))
         }

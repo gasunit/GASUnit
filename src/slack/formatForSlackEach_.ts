@@ -1,5 +1,6 @@
 import indent_ from '../indent_'
 import isBoolean_ from '../isBoolean_'
+import isTruthy_ from '../isTruthy_'
 
 // NOTE: Below function will be private in Google Apps Script.
 /**
@@ -16,11 +17,11 @@ function formatForSlackEach_ (result: object, indentLevel = 0): string[] {
       } else {
         lines.push(indent_(indentLevel) + '✗ ' + key)
         const message: string = value.message
-        if (message) {
+        if (isTruthy_(message)) {
           lines.push(indent_(indentLevel + 1) + message)
         }
         const stack: string = value.stack
-        if (stack) {
+        if (isTruthy_(stack)) {
           const stackLines = stack.split('\n')
           stackLines.forEach(line => lines.push(line))
         }

@@ -6,7 +6,7 @@ import postToSlack_ from './postToSlack_'
 /**
 * Return object which has test functions for Slack.
 */
-function slack (url: string): {exports: Function} {
+function slack (url: string): { exports: Function } {
   return {
     exports: (suite: object) => {
       const result = exportsEach_(suite)
