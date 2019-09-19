@@ -24,7 +24,6 @@
     "@typescript-eslint/eslint-plugin": "^2.3.0",
     "@typescript-eslint/parser": "^2.3.0",
     "eslint": "^6.4.0",
-    "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-with-typescript": "^9.0.0",
     "eslint-plugin-googleappsscript": "^1.0.3",
     "eslint-plugin-import": "^2.18.2",
