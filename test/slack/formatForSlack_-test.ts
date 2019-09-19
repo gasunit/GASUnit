@@ -6,11 +6,11 @@ import assert = require('assert')
 describe('#formatForSlack_()', () => {
   describe('when all test is passing', () => {
     const result = {
-      '1': {
-        'a': {
+      1: {
+        a: {
           passing: true
         },
-        'b': {
+        b: {
           passing: true
         }
       }
@@ -36,11 +36,11 @@ describe('#formatForSlack_()', () => {
 
   describe('when some test is not passing', () => {
     const result = {
-      '1': {
-        'a': {
+      1: {
+        a: {
           passing: true
         },
-        'b': {
+        b: {
           passing: false,
           message: 'Failed to test b',
           stack: 'at foo:123\nat bar:456'

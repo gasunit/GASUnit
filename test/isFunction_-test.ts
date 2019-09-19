@@ -7,7 +7,7 @@ describe('#isFunction_()', () => {
   describe('when argument is function', () => {
     describe('by function declaration', () => {
       it('should return true', () => {
-        function func () {
+        function func (): void {
           // This is function
         }
         const value = isFunction_(func)
@@ -16,7 +16,7 @@ describe('#isFunction_()', () => {
     })
     describe('by function expression', () => {
       it('should return true', () => {
-        const func = function () {
+        const func = function (): void {
           // This is function
         }
         const value = isFunction_(func)
@@ -25,7 +25,7 @@ describe('#isFunction_()', () => {
     })
     describe('by arrow function', () => {
       it('should return true', () => {
-        const func = () => {
+        const func: () => void = () => {
           // This is function
         }
         const value = isFunction_(func)

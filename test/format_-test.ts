@@ -6,11 +6,11 @@ import assert = require('assert')
 describe('#format_()', () => {
   it('should return result string for Logger', () => {
     const result = {
-      '1': {
-        'a': {
+      1: {
+        a: {
           passing: true
         },
-        'b': {
+        b: {
           passing: false,
           message: 'Failed to test b',
           stack: 'at foo:123\nat bar:456'

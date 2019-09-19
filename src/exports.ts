@@ -19,7 +19,7 @@ import format_ from './format_'
 *   })
 */
 // @ts-ignore: Duplicate identifier 'exports'.
-function exports (suite: object) {
+function exports (suite: object): void {
   const result = exportsEach_(suite)
   const message = format_(result)
   Logger.log(message)
