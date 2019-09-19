@@ -5,8 +5,8 @@
   "scripts": {
     "start": "npm run watch",
     "test": "ts-mocha \"test/**/*.ts\"",
-    "lint": "eslint --ext .js,.ts --ignore-path .gitignore src",
-    "fix": "eslint --fix --ext .ts --ignore-path .gitignore src",
+    "lint": "eslint --ext .js,.ts --ignore-path .gitignore 'src/**/*.ts' 'test/**/*.ts'",
+    "fix": "eslint --fix --ext .ts --ignore-path .gitignore 'src/**/*.ts' 'test/**/*.ts'",
     "login": "clasp login",
     "logout": "clasp logout",
     "pull": "clasp pull",
