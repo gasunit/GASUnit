@@ -5,7 +5,7 @@
 # GASUnit
 ![banner](.doc/banner.png)
 
-Testing library for Google Apps Script.
+Testing library for Google Apps Script.  
 Result will be logged to Logger, or posted to Slack.
 
 ## Usage
@@ -63,7 +63,7 @@ function test_array () {
 }
 ```
 
-If you're publishing source code, should **not** write webhook url as a literal.
+If you're publishing source code, should **not** write webhook url as a literal.  
 You can use properties as environment variables.
 
 ```js
@@ -111,8 +111,8 @@ function test_array () {
 ```
 
 ## Assertion
-GASUnit provides minimum assert function which verify whether value is truthy.
-You can use any assertion library (for Google Apps Script).
+GASUnit provides minimum assert function which verify whether value is truthy.  
+You can use any assertion library (for Google Apps Script).  
 GASUnit also provides [AssertGAS](https://github.com/gasunit/AssertGAS) as official assertion library.
 
 ## Badge
