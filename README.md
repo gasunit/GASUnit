@@ -2,6 +2,8 @@
 [![tested by ts-mocha](https://img.shields.io/badge/tested%20by-ts--mocha-%238d6748)](https://github.com/piotrwitek/ts-mocha)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+**English** - [日本語](README.ja.md)
+
 # GASUnit
 ![banner](.doc/banner.png)
 
