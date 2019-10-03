@@ -112,6 +112,25 @@ function test_array () {
 }
 ```
 
+### 結果を見る
+#### ロガー
+成功：
+
+![.doc/logger_success.png](.doc/logger_success.png)
+
+失敗：
+
+![.doc/logger_fail.png](.doc/logger_fail.png)
+
+#### Slack
+成功：
+
+![.doc/slack_success.png](.doc/slack_success.png)
+
+失敗：
+
+![.doc/slack_fail.png](.doc/slack_fail.png)
+
 ## アサーション
 GASUnitは、値がtruthyかどうかを検証するという最小限のアサート関数を提供しています。  
 任意の（Google Apps Script用の）アサーションライブラリを使用できます。  

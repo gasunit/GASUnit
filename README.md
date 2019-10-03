@@ -112,6 +112,25 @@ function test_array () {
 }
 ```
 
+### See result
+#### Logger
+Success:
+
+![.doc/logger_success.png](.doc/logger_success.png)
+
+Fail:
+
+![.doc/logger_fail.png](.doc/logger_fail.png)
+
+#### Slack
+Success:
+
+![.doc/slack_success.png](.doc/slack_success.png)
+
+Fail:
+
+![.doc/slack_fail.png](.doc/slack_fail.png)
+
 ## Assertion
 GASUnit provides minimum assert function which verify whether value is truthy.  
 You can use any assertion library (for Google Apps Script).  
