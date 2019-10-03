@@ -112,6 +112,11 @@ function test_array () {
 }
 ```
 
+### Run test
+Run test function on browser.
+
+![.doc/run_test.png](.doc/run_test.png)
+
 ### See result
 #### Logger
 Success:

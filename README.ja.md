@@ -112,6 +112,11 @@ function test_array () {
 }
 ```
 
+### テストを実行
+ブラウザ上でテスト関数を実行します。
+
+![.doc/run_test.png](.doc/run_test.png)
+
 ### 結果を見る
 #### ロガー
 成功：
