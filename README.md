@@ -12,7 +12,9 @@ Result will be logged to Logger, or posted to Slack.
 
 ## Usage
 ### Add library
-project key: `MSnMmw8hLWgjUG6uKSTQBEzVZgzu5bsVr`
+
+- project key: `MSnMmw8hLWgjUG6uKSTQBEzVZgzu5bsVr`
+- script id (`libraryId`): `1Bnt8-tN4ddGVzXXIkzV_AtuuMzdlmlSyKWO7KS4TAVQYgM2GJT5WC9eU`
 
 ### Write tests
 You can use **Exports** style to write tests (for now).
