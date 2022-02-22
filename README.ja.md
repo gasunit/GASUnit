@@ -12,7 +12,9 @@ Google Apps Script用のテストライブラリ。
 
 ## 使い方
 ### ライブラリを追加
-プロジェクトキー：`MSnMmw8hLWgjUG6uKSTQBEzVZgzu5bsVr`
+
+- プロジェクトキー：`MSnMmw8hLWgjUG6uKSTQBEzVZgzu5bsVr`
+- スクリプト ID (`libraryId`)：`1Bnt8-tN4ddGVzXXIkzV_AtuuMzdlmlSyKWO7KS4TAVQYgM2GJT5WC9eU`
 
 ### テストを書く
 テストを書くために、 **Exports** スタイルを使用できます（今のところは）。
